@@ -2244,7 +2244,7 @@ function draw() {
     stroke(10, 15, 54);
     strokeWeight(5);
     text(
-      "Get to the bottom of the mountain — that's the safety zone!",
+      "Get to the top of the mountain — that's the safety zone!",
       width / 2,
       foundCardBottomY + 14,
     );
