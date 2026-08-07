@@ -2218,6 +2218,7 @@ function draw() {
     foundFishMessageTimer--;
     push();
     imageMode(CENTER);
+    let foundCardBottomY = 180;
     if (
       foundPopupCard &&
       foundPopupCard.width > 0 &&
@@ -2227,8 +2228,28 @@ function draw() {
       const cardH = cardW * (foundPopupCard.height / foundPopupCard.width);
       const cardY = 180;
       image(foundPopupCard, width / 2, cardY, cardW, cardH);
+      foundCardBottomY = cardY + cardH / 2;
     }
     pop();
+
+    // Clarifies where the "safety zone" actually is, since playtesters
+    // couldn't tell after finding the fish. Drawn as text (not baked
+    // into the card art) so it doesn't need a redesigned image.
+    push();
+    textFont(gameFont);
+    textAlign(CENTER, TOP);
+    textStyle(BOLD);
+    textSize(28);
+    fill(210, 230, 255);
+    stroke(10, 15, 54);
+    strokeWeight(5);
+    text(
+      "Get to the bottom of the mountain — that's the safety zone!",
+      width / 2,
+      foundCardBottomY + 14,
+    );
+    pop();
+
     if (foundFishMessageTimer <= 0) {
       foundFishMessageActive = false;
     }
